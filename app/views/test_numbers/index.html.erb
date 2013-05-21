@@ -1,0 +1,29 @@
+<h1><%= link_to @app.name, apps_path %> &gt; Test Numbers <%= link_to raw('<i class="icon-plus"></i> New Test Number'), new_app_test_number_path, :class => 'btn' %></h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Number</th>
+    <th>Active Avatar</th>
+    <th></th>
+  </tr>
+
+<% @test_numbers.each do |test_number| %>
+  <tr>
+    <td><%= test_number.number %></td>
+    <% if test_number.active_avatar %>
+    <td><%= test_number.active_avatar.name %> (<%= test_number.active_avatar.number %>)</td>
+    <% else %>
+    <td></td>
+    <% end %>
+    <td>
+      <div class="btn-group">
+        <%= link_to 'Edit', edit_app_test_number_path(@app, test_number), :class => 'btn btn-small' %>
+        <%= link_to 'Destroy', [@app, test_number], :class => 'btn btn-small', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <div class="btn-group">
+        <%= link_to 'Avatars (' + test_number.avatars.length.to_s + ')', app_test_number_avatars_path(@app, test_number), :class => 'btn btn-small' %>    
+      </div>
+    </td>
+  </tr>
+<% end %>
+</table>

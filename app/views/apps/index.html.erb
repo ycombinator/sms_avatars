@@ -1,0 +1,29 @@
+<h1>Apps <%= link_to raw('<i class="icon-plus"></i> New App'), new_app_path, :class => 'btn' %></h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Incoming SMS URI</th>
+    <th>URI to configure in Twilio</th>
+    <th>Avatar Switch Command</th>
+    <th></th>
+  </tr>
+
+<% @apps.each do |app| %>
+  <tr>
+    <td><%= app.name %></td>
+    <td><%= app.incomingSmsUri %></td>
+    <td><%= app_twilio_incoming_sms_url(app) %></td>
+    <td><%= app.avatarSwitchCommand %></td>
+    <td>
+      <div class="btn-group">
+        <%= link_to 'Edit', edit_app_path(app), :class => 'btn btn-small' %>
+        <%= link_to 'Destroy', app, :class => 'btn btn-small', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+      <div class="btn-group">
+        <%= link_to 'Test Numbers (' + app.test_numbers.length.to_s + ')', app_test_numbers_path(app), :class => 'btn btn-small' %>    
+      </div>
+    </td>
+  </tr>
+<% end %>
+</table>

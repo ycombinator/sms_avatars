@@ -1,0 +1,19 @@
+<p>
+  <b>Name:</b>
+  <%= @app.name %>
+</p>
+
+<p>
+  <b>Incoming SMS URI:</b>
+  <%= @app.incomingSmsUri %>
+</p>
+
+<p>
+  <b>Avatar Switch Command:</b>
+  <%= @app.avatarSwitchCommand %>
+</p>
+
+
+<%= link_to 'Test Numbers', app_test_numbers_path(@app) %> |
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>

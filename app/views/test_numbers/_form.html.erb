@@ -1,0 +1,30 @@
+<%= form_for([@test_number.app, @test_number], :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @test_number.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@test_number.errors.count, "error") %> prohibited this test_number from being saved:</h2>
+
+      <ul>
+      <% @test_number.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :number, :class => "control-label" %>
+    <div class="controls"><%= f.text_field :number, :required => true %></div>
+  </div>
+  <% if @test_number.avatars.length > 0 %>
+  <div class="control-group">
+     <%= f.label :active_avatar_id, 'Active Avatar', :class => "control-label" %>
+    <div class="controls"><%= collection_select(:test_number, :active_avatar_id, @test_number.avatars, :id, :name) %></div>
+  </div>
+  <% end %>
+  <div class="btn-group">
+    <%= f.submit(:class => 'btn btn-large') %>
+  </div>
+  <div class="btn-group">
+    <%= link_to 'Back', app_test_numbers_path, :class => 'btn btn-danger btn-large' %>
+  </div>
+<% end %>

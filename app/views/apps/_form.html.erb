@@ -1,0 +1,32 @@
+<%= form_for(@app, :html => { :class => "form-horizontal" }) do |f| %>
+  <% if @app.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@app.errors.count, "error") %> prohibited this app from being saved:</h2>
+
+      <ul>
+      <% @app.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :name, :class => "control-label" %>
+    <div class="controls"><%= f.text_field :name, :required => true %></div>
+  </div>
+  <div class="control-group">
+    <%= f.label :incomingSmsUri, 'Incoming SMS URI', :class => "control-label" %>
+    <div class="controls"><%= f.url_field :incomingSmsUri, :required => true %></div>
+  </div>
+  <div class="control-group">
+    <%= f.label :avatarSwitchCommand, 'Avatar Switch Command', :class => "control-label" %>
+    <div class="controls"><%= f.text_field :avatarSwitchCommand %></div>
+  </div>
+  <div class="btn-group">
+    <%= f.submit(:class => 'btn btn-large') %>
+  </div>
+  <div class="btn-group">
+    <%= link_to 'Back', apps_path, :class => 'btn btn-danger btn-large' %>
+  </div>
+<% end %>

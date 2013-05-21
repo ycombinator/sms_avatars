@@ -1,0 +1,22 @@
+<h1><%= link_to @test_number.app.name, apps_path %> &gt; <%= link_to @test_number.number, app_test_numbers_path %> &gt; Avatars <%= link_to raw('<i class="icon-plus"></i> New Avatar'), new_app_test_number_avatar_path, :class => 'btn' %></h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th></th>
+  </tr>
+
+<% @avatars.each do |avatar| %>
+  <tr>
+    <td><%= avatar.name %></td>
+    <td><%= avatar.number %></td>
+    <td>
+      <div class="btn-group">
+        <%= link_to 'Edit', edit_app_test_number_avatar_path(@test_number.app, @test_number, avatar), :class => 'btn btn-small' %>
+        <%= link_to 'Destroy', [@test_number.app, @test_number, avatar], :class => 'btn btn-small', method: :delete, data: { confirm: 'Are you sure?' } %>
+      </div>
+    </td>
+  </tr>
+<% end %>
+</table>
