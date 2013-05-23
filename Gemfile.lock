@@ -38,6 +38,7 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    addressable (2.3.3)
     arel (3.0.2)
     builder (3.0.4)
     coffee-rails (3.2.2)
@@ -47,6 +48,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.2)
+    curb (0.8.4)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -109,12 +111,15 @@ GEM
     uglifier (2.1.0)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    xml-simple (1.1.2)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   coffee-rails (~> 3.2.1)
+  curb
   jquery-rails
   pg
   rails (= 3.2.13)
@@ -122,3 +127,4 @@ DEPENDENCIES
   sqlite3
   twitter-bootstrap-rails!
   uglifier (>= 1.0.3)
+  xml-simple

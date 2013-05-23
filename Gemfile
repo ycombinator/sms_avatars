@@ -14,6 +14,9 @@ group :production do
 end
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'curb'
+gem 'addressable'
+gem 'xml-simple'
 
 # Gems used only for assets and not required
 # in production environments by default.
